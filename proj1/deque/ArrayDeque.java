@@ -88,13 +88,13 @@ public class ArrayDeque<T> implements Deque<T> {
 
     @Override
     public T get(int index) {
-        if (index > size - 1) {
+        if (index > (size - 1)) {
             return null;
         } else {
-            if ((index + nextFirst) < items.length) {
+            if ((index + nextFirst) < items.length - 1) {
                 return items[index + nextFirst];
             } else {
-                return items[index + nextFirst - items.length];
+                return items[index + nextFirst - (items.length - 1)];
             }
         }
     }

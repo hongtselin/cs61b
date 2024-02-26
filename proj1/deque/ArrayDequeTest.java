@@ -116,6 +116,10 @@ public class ArrayDequeTest {
             lld1.addLast(i);
         }
 
+        for(int i = 0; i < 1000000; i++) {
+            assertEquals("Should has the same value", i, (double) lld1.get(i), 0.0);
+        }
+
         for (double i = 0; i < 500000; i++) {
             assertEquals("Should have the same value", i, (double) lld1.removeFirst(), 0.0);
         }
