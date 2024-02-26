@@ -56,9 +56,6 @@ public class ArrayDeque<T> implements Deque<T> {
         nextLast = size;
     }
 
-    private void downsize() {
-        //
-    }
 
     @Override
     public void addFirst(T item) {
@@ -148,20 +145,16 @@ public class ArrayDeque<T> implements Deque<T> {
 
         public ADIterator() {
             //point the cursor to the first item in the array
-            currPos = nextIndex(nextFirst);
+            currPos = 0;
         }
 
         public boolean hasNext() {
-            if (currPos < size) {
-                return true;
-            } else {
-                return false;
-            }
+            return currPos < size;
         }
 
         public T next() {
-            T nextItem = items[currPos];
-            currPos = nextIndex(currPos);
+            T nextItem = get(currPos);
+            currPos += 1;
             return nextItem;
         }
 

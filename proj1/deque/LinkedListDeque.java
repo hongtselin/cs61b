@@ -144,33 +144,73 @@ public class LinkedListDeque<T> implements Deque<T>{
         return null;
     }
 
+    public T getRecursive(int index) {
+        if (index > size - 1) {
+            return null;
+        }
+
+        return getRecursive(index, sentinel.next);
+
+    }
+
+
+    private T getRecursive(int index, Node currNode) {
+        if (index == 0) {
+            return currNode.item;
+        } else {
+            index -= 1;
+            return getRecursive(index, currNode.next);
+        }
+
+    }
+
     @Override
     public Iterator iterator() {
         return new LLIterator();
     }
 
     public class LLIterator implements Iterator<T> {
-        private Node currNode;
+        private int currPos;
 
         public LLIterator() {
-            currNode = sentinel;
+            currPos = 0;
         }
 
         public boolean hasNext() {
-            if (currNode.next != null) {
-                return true;
-            } else {
-                return false;
-            }
+            return currPos < size;
         }
 
         public T next() {
-            T nextItem = currNode.next.item;
-            currNode = currNode.next;
+            T nextItem = get(currPos);
+            currPos += 1;
             return nextItem;
         }
 
     }
 
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) {
+            return true;
+        }
+
+        if (other instanceof Deque) {
+            Deque<T> otherDeque = (Deque<T>) other;
+
+            if (otherDeque.size() != this.size()) {
+                return false;
+            }
+
+            for (int i = 0; i < this.size(); i++) {
+                if (this.get(i) != otherDeque.get(i)) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        return false;
+    }
 
 }
