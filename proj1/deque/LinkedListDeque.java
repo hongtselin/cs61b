@@ -146,7 +146,7 @@ public class LinkedListDeque<T> implements Deque<T>{
 
     @Override
     public Iterator iterator() {
-        return new LLIteraotr();
+        return new LLIterator();
     }
 
     public class LLIterator implements Iterator<T> {
@@ -157,7 +157,17 @@ public class LinkedListDeque<T> implements Deque<T>{
         }
 
         public boolean hasNext() {
-            if
+            if (currNode.next != null) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        public T next() {
+            T nextItem = currNode.next.item;
+            currNode = currNode.next;
+            return nextItem;
         }
 
     }

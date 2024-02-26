@@ -49,7 +49,7 @@ public class ArrayDeque<T> implements Deque<T> {
         int cursor = nextFirst;
         for (int i = 0; i < size; i++) {
             temp[i] = items[this.nextIndex(cursor)];
-            cursor += 1;
+            cursor = nextIndex(cursor);
         }
         items = temp;
         nextFirst = capacity - 1;
@@ -107,7 +107,7 @@ public class ArrayDeque<T> implements Deque<T> {
         }
 
         // resize the array if removed an item will bring usage ratio less than 25%
-        if ((size - 1) / items.length < 0.25) {
+        if ((size - 1)   < 0.25 * items.length && (items.length > 16)){
             resize(items.length / 2);
         }
 
@@ -127,7 +127,7 @@ public class ArrayDeque<T> implements Deque<T> {
         }
 
 
-        if ((size - 1) / items.length < 0.25) {
+        if ((size - 1)   < 0.25 * items.length && (items.length > 16)){
             resize(items.length / 2);
         }
 
