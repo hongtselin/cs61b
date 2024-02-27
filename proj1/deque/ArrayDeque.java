@@ -135,7 +135,7 @@ public class ArrayDeque<T> implements Deque<T> {
         return removedItem;
     }
 
-    @Override
+
     public Iterator<T> iterator() {
         return new ADIterator();
     }
