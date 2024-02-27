@@ -21,9 +21,8 @@ public interface Deque<T> extends Iterable<T> {
     default boolean isEmpty() {
         if (size() == 0) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     @Override

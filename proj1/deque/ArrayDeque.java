@@ -143,7 +143,7 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
     private class ADIterator implements Iterator<T> {
         private int currPos;
 
-        public ADIterator() {
+        ADIterator() {
             //point the cursor to the first item in the array
             currPos = 0;
         }

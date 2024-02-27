@@ -166,7 +166,7 @@ public class LinkedListDeque<T> implements Deque<T>, Iterable<T> {
     private class LLIterator implements Iterator<T> {
         private int currPos;
 
-        public LLIterator() {
+        LLIterator() {
             currPos = 0;
         }
 
