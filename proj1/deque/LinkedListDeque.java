@@ -54,7 +54,8 @@ public class LinkedListDeque<T> implements Deque<T> ,Iterable<T>{
 
         // addLast and addFirst is the same to an empty list
         if (size == 0) {
-            this.addFirst(item);
+            sentinel.next = new Node(item, sentinel, sentinel);
+            sentinel.prev = sentinel.next;;
         } else {
             // point sentinel.prev (the last Node) to the newly added Node
             sentinel.prev = new Node(item, sentinel.prev, sentinel);

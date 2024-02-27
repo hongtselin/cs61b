@@ -173,12 +173,10 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
                 return false;
             }
 
-            int thisCursor = nextIndex(this.nextFirst);
-            for (T otherItem : otherDeque) {
-                if (otherItem != this.items[thisCursor]) {
+            for (int i = 0; i < this.size(); i++) {
+                if (this.get(i) != otherDeque.get(i)) {
                     return false;
                 }
-                thisCursor = nextIndex(thisCursor);
             }
 
             return true;
