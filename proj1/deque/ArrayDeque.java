@@ -4,9 +4,9 @@ import java.util.Iterator;
 
 public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
     private int size;
-    public int nextFirst;
-    public int nextLast;
-    public T[] items;
+    private int nextFirst;
+    private int nextLast;
+    private T[] items;
 
     public ArrayDeque() {
         size = 0;
@@ -104,7 +104,7 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
         }
 
         // resize the array if removed an item will bring usage ratio less than 25%
-        if ((size - 1)   < 0.25 * items.length && (items.length > 16)){
+        if ((size - 1) < 0.25 * items.length && (items.length > 16)) {
             resize(items.length / 2);
         }
 
@@ -124,7 +124,7 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
         }
 
 
-        if ((size - 1)   < 0.25 * items.length && (items.length > 16)){
+        if ((size - 1) < 0.25 * items.length && (items.length > 16)) {
             resize(items.length / 2);
         }
 
@@ -140,7 +140,7 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
         return new ADIterator();
     }
 
-    public class ADIterator implements Iterator<T> {
+    private class ADIterator implements Iterator<T> {
         private int currPos;
 
         public ADIterator() {
@@ -174,7 +174,7 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
             }
 
             for (int i = 0; i < this.size(); i++) {
-                if (this.get(i) != otherDeque.get(i)) {
+                if (!this.get(i).equals(otherDeque.get(i))) {
                     return false;
                 }
             }
