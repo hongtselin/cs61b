@@ -88,10 +88,10 @@ public class ArrayDeque<T> implements Deque<T> {
         if (index > (size - 1)) {
             return null;
         } else {
-            if ((index + nextFirst) < items.length - 1) {
-                return items[index + nextFirst];
+            if ((index + nextFirst + 1) <= items.length - 1) {
+                return items[index + nextFirst + 1];
             } else {
-                return items[index + nextFirst - (items.length - 1)];
+                return items[index + nextFirst + 1 - items.length];
             }
         }
     }

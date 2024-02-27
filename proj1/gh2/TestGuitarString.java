@@ -17,7 +17,8 @@ public class TestGuitarString  {
         GuitarString aString = new GuitarString(GuitarHeroLite.CONCERT_A);
         aString.pluck();
         for (int i = 0; i < 50000; i += 1) {
-            StdAudio.play(aString.sample());
+            //StdAudio.play(aString.sample());
+            System.out.println(aString.sample());
             aString.tic();
         }
     }
