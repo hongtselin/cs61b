@@ -21,7 +21,7 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
      * @param index
      * @return int
      */
-    public int nextIndex(int index) {
+    private int nextIndex(int index) {
         if (index + 1 > items.length - 1) {
             return index + 1 - items.length;
         } else {
@@ -35,7 +35,7 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
      * @param index
      * @return int
      */
-    public int prevIndex(int index) {
+    private int prevIndex(int index) {
         if (index - 1 < 0) {
             return index - 1 + items.length;
         } else {
